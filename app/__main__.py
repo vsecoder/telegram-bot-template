@@ -97,7 +97,7 @@ async def main():
         )
     )
     token = config.bot.token
-    bot_settings = {"session": session, "parse_mode": "HTML"}
+    bot_settings = {"session": session}
 
     bot = Bot(token, **bot_settings)
 
