@@ -9,4 +9,4 @@ pyrogram>=2.0.0
 redis
 tgcrypto
 toml
-tortoise-orm
+tortoise-orm==0.20.0

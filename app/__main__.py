@@ -3,8 +3,10 @@ import logging
 
 import coloredlogs
 from aiogram import Bot, Dispatcher
+from aiogram.enums import ParseMode
 from aiogram.client.session.aiohttp import AiohttpSession
 from aiogram.client.telegram import TelegramAPIServer
+from aiogram.client.bot import DefaultBotProperties
 from aiogram.fsm.storage.memory import MemoryStorage
 from aiogram.fsm.storage.redis import DefaultKeyBuilder, RedisStorage
 from aiogram.webhook.aiohttp_server import SimpleRequestHandler, setup_application
@@ -97,7 +99,10 @@ async def main():
         )
     )
     token = config.bot.token
-    bot_settings = {"session": session}
+    bot_settings = {
+        "session": session,
+        "default": DefaultBotProperties(parse_mode=ParseMode.HTML),
+    }
 
     bot = Bot(token, **bot_settings)
 
